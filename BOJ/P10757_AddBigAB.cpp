@@ -24,15 +24,15 @@ int main (){
         c_out = 0;
         
         if(num >= 10) c_out = num/10;
-        result.push_back(num%10);
+        result.insert(result.begin(), num%10);
         
-        str1.pop_back();
-        str2.pop_back();
+        if (!str1.empty()) str1.pop_back();
+        if (!str2.empty()) str2.pop_back();
         if (str1.empty() && str2.empty()) break;
     }
-    if (c_out > 0) result.push_back(c_out);
+    if (c_out > 0) result.insert(result.begin(), c_out);
     
-    for (int i = result.size()-1 ; i >= 0 ; i--){
+    for (int i = 0 ; i < result.size() ; i++){
         cout << result[i];
     }
     return 0;
