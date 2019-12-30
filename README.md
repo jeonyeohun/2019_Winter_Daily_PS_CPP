@@ -210,3 +210,8 @@
 > Given two arrays, write a function to compute their intersection.
 
 * 접근 방법: 조금이라도 효율적으로 해보려고 처음엔 벡터 두개를 합쳐서 중복되는 값의 갯수를 구해서 해결하려고 했는데, 생각해보니까 말도 안되는 방법이었다..두 벡터를 합쳐버리면 어떤 값이 어디에 속하는지 알 수가 없으니까..그래서 그냥 벡터를 복사해서 페어가 만들어지는 값을 날려버렸다. 이렇게 하면 기준이 되는 벡터의 인덱스에 문제가 생겨서 한번 erase 할 때마다 인덱스를 한자리씩 앞으로 당겨주면 된다.
+
+[324. Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)
+> Given an unsorted array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
+
+* 접근 방법: 이 정렬 방법은 결국 배열이 정렬된 상태에서 짝수번째에 있는 위치에 삽입되면 해결된다. 따라서 우선 주어진 벡터를 sort함수로 정렬하고 맨 뒤에서부터 정해진 위치에 아이템을 insert하고 insert가 끝난 아이템은 pop_back하면 해결할 수 있다.
