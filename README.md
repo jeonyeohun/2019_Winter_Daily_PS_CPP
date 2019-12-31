@@ -222,3 +222,8 @@
 > Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements of [1, n] inclusive that do not appear in this array. Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
 
 * 접근 방법: 최대한 O(n)에 맞춘 방법을 생각하는게 어려웠다. 계속 고민하다가 discussion에서 힌트를 얻어 벡터에 이미 한번이라도 나온 숫자에 해당하는 인덱스를 마킹하는 방법으로 접근했다. 어차피 숫자는 1부터 최대 nums.size()까지만 들어오니까 똑같은 길이의 bool형 벡터를 만들고 nums의 요소를 하나씩 읽어서 nums[i]-1 인덱스를 true 로 마킹하면 최종적으로는 nums 배열에 포함되어 있지 않는 숫자에 해당하는 bool 벡터 인덱스 값이 모두 false로 마킹되어 있을 것이다. 이 인덱스 값에 +1을 하여 반환을 할 벡터에 추가한다.
+
+[41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/)
+> Given an unsorted integer array, find the smallest missing positive integer.
+
+* 접근 방법: 주어진 배열에 없는 정수의 최솟값을 구하기 위해서 먼저 배열을 정렬한다. 그리고 음수, 0은 무시해야하기 때문에 정수가 시작되는 지점을 구한다. 그리고 반복문을 돌릴 때, 제외된 음수와 0의 갯수만큼을 현재 배열에 최댓값에 더해서 나올 수 있는 최댓값을 설정한다. 이후에 i를 1부터 방금 구한 최댓값까지 올리면서 현재 배열안에 해당 값이 있는 지 확인하고 존재하지 않는 값을 i가 가지게 되면 i를 바로 리턴한다. 만약 배열의 끝에 도달할때까지 리턴되는 값이 없다면, 일단 배열에 정수가 존재하는지 확인한다. 이 경우는 배열이 정수없이 음수나 0으로만 이루어져 있을 경우 무조건 1을 리턴하게 하기 위한 검사이다. 그리고 만약 배열에 정수가 존재한다면 1부터 마지막 숫자까지 비어있는 정수가 없다는 의미이기 때문에 배열에서 가장 큰 정수인 nums[nums.size()-1]에 1을 더한 값을 리턴한다.
