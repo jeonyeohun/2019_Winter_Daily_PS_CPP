@@ -42,4 +42,5 @@ int main (){
     for (string s : result){
         cout << s << endl;
     }
+    return 0;
 }
