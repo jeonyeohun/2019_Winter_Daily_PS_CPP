@@ -215,3 +215,10 @@
 > Given an unsorted array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
 
 * 접근 방법: 이 정렬 방법은 결국 배열이 정렬된 상태에서 짝수번째에 있는 위치에 삽입되면 해결된다. 따라서 우선 주어진 벡터를 sort함수로 정렬하고 맨 뒤에서부터 정해진 위치에 아이템을 insert하고 insert가 끝난 아이템은 pop_back하면 해결할 수 있다.
+
+### 2019.12.31 화요일
+
+[448. Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
+> Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements of [1, n] inclusive that do not appear in this array. Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
+
+* 접근 방법: 최대한 O(n)에 맞춘 방법을 생각하는게 어려웠다. 계속 고민하다가 discussion에서 힌트를 얻어 벡터에 이미 한번이라도 나온 숫자에 해당하는 인덱스를 마킹하는 방법으로 접근했다. 어차피 숫자는 1부터 최대 nums.size()까지만 들어오니까 똑같은 길이의 bool형 벡터를 만들고 nums의 요소를 하나씩 읽어서 nums[i]-1 인덱스를 true 로 마킹하면 최종적으로는 nums 배열에 포함되어 있지 않는 숫자에 해당하는 bool 벡터 인덱스 값이 모두 false로 마킹되어 있을 것이다. 이 인덱스 값에 +1을 하여 반환을 할 벡터에 추가한다.
