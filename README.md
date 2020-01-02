@@ -433,3 +433,17 @@ Write a function to find the longest common prefix string amongst an array of st
 If there is no common prefix, return an empty string "".
 ~~~
 * 접근 방법: 먼저, 주어진 단어들 중 길이가 가장 짧은 단어를 찾아서 그 단어를 기준으로 common prefix를 검사한다. 왜냐하면 어차피 단어길이가 가장 짧은 단어의 길이를 넘어가면 common prefix를 찾는것이 의미가 없기 때문이다. 길이를 찾고 각 단어의 n 번째 문자를 차례대로 검사하면서 공통되는 문자가 나오면 리턴할 문자열에 집어넣는다. 그리고 만약 공통되지 않는 글자가 나오면 바로 지금까지 넣어둔 결과 문자열을 리턴한다.
+
+[686. Repeated String Match](https://leetcode.com/problems/repeated-string-match/)
+~~~
+Given two strings A and B, find the minimum number of times A has to be repeated such that B is a substring of it. If no such solution, return -1.
+
+For example, with A = "abcd" and B = "cdabcdab".
+
+Return 3, because by repeating A three times (“abcdabcdabcd”), B is a substring of it; and B is not a substring of A repeated two times ("abcdabcd").
+
+Note:
+The length of A and B will be between 1 and 10000.
+~~~
+
+* 접근 방법: 단순히 A를 계속 누적해서 더해가면서 find 함수를 통해 부분 문자열의 존재 여부를 확인하는 방법을 선택했다. 문제를 풀면서 까다로웠던 부분은 no solution 판정을 어느 시점에서 할 것인가 인데, 누적된 A의 문자열 길이가 A의 초기 문자열 길이+ B의 길이가 되면 앞으로 이어질 문자열은 이미 모든 부분 문자열의 경우의 수가 다 나온 상태이기 때문에 이떄까지 결과가 안나오면 no solution으로 판정하고 -1을 반환하도록 했다.
