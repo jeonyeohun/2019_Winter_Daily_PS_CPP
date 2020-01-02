@@ -447,3 +447,11 @@ The length of A and B will be between 1 and 10000.
 ~~~
 
 * 접근 방법: 단순히 A를 계속 누적해서 더해가면서 find 함수를 통해 부분 문자열의 존재 여부를 확인하는 방법을 선택했다. 문제를 풀면서 까다로웠던 부분은 no solution 판정을 어느 시점에서 할 것인가 인데, 누적된 A의 문자열 길이가 A의 초기 문자열 길이+ B의 길이가 되면 앞으로 이어질 문자열은 이미 모든 부분 문자열의 경우의 수가 다 나온 상태이기 때문에 이떄까지 결과가 안나오면 no solution으로 판정하고 -1을 반환하도록 했다.
+
+[67. Add Binary](https://leetcode.com/problems/add-binary/)
+~~~
+Given two binary strings, return their sum (also a binary string).
+
+The input strings are both non-empty and contains only characters 1 or 0.
+~~~
+* 접근 방법: one bit adder를 구현하면 된다. carry out이랑 자릿수가 다른 이진수 끼리의 덧셈할 때 인덱스 예외만 잘 처리해주면 된다.
