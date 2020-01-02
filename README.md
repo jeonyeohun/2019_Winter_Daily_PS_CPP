@@ -424,5 +424,12 @@ X can be placed before L (50) and C (100) to make 40 and 90.
 C can be placed before D (500) and M (1000) to make 400 and 900.
 Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.
 ~~~
-
 * 접근 방법: 10진수 -> 로마자를 만들었을 때처럼 배열에 모든 정보를 미리 맵핑해두고 prefix가 될 수 있는 로마자인 I, X, C가 나오면 바로 다음에 위치한 문자와 합쳐서 사용가능한 문자인지 확인하고 점수를 계산한다. 만약에 사용이 가능하다면 다음 검사는 바로 다음 문자가 아니라 2칸 뒤에 떨어져있는 문자가 되어야하기 때문에 반복문 컨트롤을 잘 해주어야 한다.
+
+[14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
+~~~
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+~~~
+* 접근 방법: 먼저, 주어진 단어들 중 길이가 가장 짧은 단어를 찾아서 그 단어를 기준으로 common prefix를 검사한다. 왜냐하면 어차피 단어길이가 가장 짧은 단어의 길이를 넘어가면 common prefix를 찾는것이 의미가 없기 때문이다. 길이를 찾고 각 단어의 n 번째 문자를 차례대로 검사하면서 공통되는 문자가 나오면 리턴할 문자열에 집어넣는다. 그리고 만약 공통되지 않는 글자가 나오면 바로 지금까지 넣어둔 결과 문자열을 리턴한다.
