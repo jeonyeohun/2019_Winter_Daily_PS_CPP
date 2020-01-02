@@ -433,3 +433,11 @@ Write a function to find the longest common prefix string amongst an array of st
 If there is no common prefix, return an empty string "".
 ~~~
 * 접근 방법: 먼저, 주어진 단어들 중 길이가 가장 짧은 단어를 찾아서 그 단어를 기준으로 common prefix를 검사한다. 왜냐하면 어차피 단어길이가 가장 짧은 단어의 길이를 넘어가면 common prefix를 찾는것이 의미가 없기 때문이다. 길이를 찾고 각 단어의 n 번째 문자를 차례대로 검사하면서 공통되는 문자가 나오면 리턴할 문자열에 집어넣는다. 그리고 만약 공통되지 않는 글자가 나오면 바로 지금까지 넣어둔 결과 문자열을 리턴한다.
+
+[67. Add Binary](https://leetcode.com/problems/add-binary/)
+~~~
+Given two binary strings, return their sum (also a binary string).
+
+The input strings are both non-empty and contains only characters 1 or 0.
+~~~
+* 접근 방법: one bit adder를 구현하면 된다. carry out이랑 자릿수가 다른 이진수 끼리의 덧셈할 때 인덱스 예외만 잘 처리해주면 된다.
