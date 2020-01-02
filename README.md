@@ -361,7 +361,7 @@ Given an integer, convert it to a roman numeral. Input is guaranteed to be withi
 ~~~
 * 접근 방법: 처음에는 벡터를 두개 사용해서 find함수를 통해 해결하려고 했는데, std::find 함수는 모든 배열 요소를 검사하는 O(N^2) 의 복잡도를 가진다. 그래서 시간초과를 해결하기 위해 set을 사용하기로 했다. set 자료구조는 아이템이 들어갈 때마다 자동으로 정렬이 되고 이미 정렬된 배열이기 때문에 find함수도 이진탐색을 기반으로 한 O(log n) 의 복잡도를 가진다. 
 
-### 2020.01.01 
+### 2020.01.01 수요일
 [1018번: 체스판 다시 칠하기](https://www.acmicpc.net/problem/1018)
 ~~~
 문제
@@ -401,3 +401,28 @@ Given an integer, convert it to a roman numeral. Input is guaranteed to be withi
 첫째 줄에 N번째 영화의 제목에 들어간 수를 출력한다.
 ~~~
 * 접근 방법: 사실 나머지 연산으로 해도 될 것 같긴 한데, 문자열로 처리하는게 제일 간단해보여서 나는 i를 0부터 계속 증가시키면서 i를 문자열로 변환하고 해당 문자열에 666이 포함되어 있는지 확인하는 방법을 시도했다. string 라이브러리의 substr() 함수는 substring을 찾으면 그 string을 반환하고, 찾지 못하면 string::npos를 반환하기 때문에, npos를 제외하고 어떤 값이라도 반환이 되면 카운트를 하나씩 올리고 이 카운트 변수가 입력으로 받은 N과 일치하면 반복을 종료하고 마지막으로 받았던 문자열을 출력하도록 한다.
+
+### 2019.01.02 
+[13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
+~~~
+Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+For example, two is written as II in Roman numeral, just two one's added together. Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, which is XX + V + II.
+
+Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+
+I can be placed before V (5) and X (10) to make 4 and 9. 
+X can be placed before L (50) and C (100) to make 40 and 90. 
+C can be placed before D (500) and M (1000) to make 400 and 900.
+Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.
+~~~
+
+* 접근 방법: 10진수 -> 로마자를 만들었을 때처럼 배열에 모든 정보를 미리 맵핑해두고 prefix가 될 수 있는 로마자인 I, X, C가 나오면 바로 다음에 위치한 문자와 합쳐서 사용가능한 문자인지 확인하고 점수를 계산한다. 만약에 사용이 가능하다면 다음 검사는 바로 다음 문자가 아니라 2칸 뒤에 떨어져있는 문자가 되어야하기 때문에 반복문 컨트롤을 잘 해주어야 한다.
