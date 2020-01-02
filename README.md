@@ -455,3 +455,18 @@ Given two binary strings, return their sum (also a binary string).
 The input strings are both non-empty and contains only characters 1 or 0.
 ~~~
 * 접근 방법: one bit adder를 구현하면 된다. carry out이랑 자릿수가 다른 이진수 끼리의 덧셈할 때 인덱스 예외만 잘 처리해주면 된다.
+
+[6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)
+~~~
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+
+P   A   H   N
+A P L S I I G
+Y   I   R
+And then read line by line: "PAHNAPLSIIGYIR"
+
+Write the code that will take a string and make this conversion given a number of rows:
+
+string convert(string s, int numRows);
+~~~
+* 접근 방법: 2차원 배열을 만들어두고 문제에서 주어진 조건대로 배열에 문자를 하나씩 집어 넣으 이후에 배열을 순서대로 출력하는 방법으로 해결했다. 행과 열의 인덱스를 규칙에 따라 바꾸어주어야하는데, row가 1씩 증가하는 것을 default 조건으로 만들고 row가 numRows-1에 도달하면 대각선으로 이동하도록 인덱스를 증감시키고 row가 다시 0에 도달하면 원래대로 행만 변경하면서 직선으로 내려오도록 인덱스를 증감시켰다. numRows가 1로 들어올 때 zero division에 대한 예외처리 때문에 애를 먹었는데, 결국 단순하게 생각해보면 numrows가 1이라는 것은 입력으로 들어온 문자열이 그대로 출력되는 것을 의미하기 때문에 파라미터로 들어온 문자열을 그대로 반환하는 것으로 해결했다.
