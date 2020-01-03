@@ -483,3 +483,19 @@ getMin() -- Retrieve the minimum element in the stack.
 ~~~
 
 * 접근 방법: 스택을 구현하는데 백터를 사용하는게 뭔가 아이러니하긴 하지만 아이템을 push하고 pop하는 과정은 벡터로 쉽게 구현이 가능했다. 그냥 push_back()과 pop_back()을 사용하면 되니까..결국 최솟값을 구하는 것을 최소한의 시간을 가지고 해야하는데 문제는 pop 기능이 있기 때문에 최솟값이 업데이트 되기 이전의 값으로 되돌릴 경우도 있다는 것이다. 이것을 해결하기 위해서 벡터 하나를 더 만들어서 또 다른 스택처럼 최솟값을 계속 모아두었다가 pop하는 값이 모아둔 최솟값의 가장 top에 위치한 아이템과 같다면, 최솟값 스택도 같이 pop해주는 방법으로 해결했다.
+
+[686. Baseball Game](https://leetcode.com/problems/baseball-game/)
+~~~
+You're now a baseball game point recorder.
+
+Given a list of strings, each string can be one of the 4 following types:
+
+Integer (one round's score): Directly represents the number of points you get in this round.
+"+" (one round's score): Represents that the points you get in this round are the sum of the last two valid round's points.
+"D" (one round's score): Represents that the points you get in this round are the doubled data of the last valid round's points.
+"C" (an operation, which isn't a round's score): Represents the last valid round's points you get were invalid and should be removed.
+Each round's operation is permanent and could have an impact on the round before and the round after.
+
+You need to return the sum of the points you could get in all the rounds.
+~~~
+* 접근 방법: 벡터에 점수들을 모아두고 마지막에 벡터에 있는 수들의 합을 구해 리턴하는 방법으로 해결했다. 처음에는 isdigt()함수를 이용해서 숫자가 나왔을 때 벡터에 push하는 방법을 사용하려고 했는데, 테스트케이스 중에 음수가 나오는 케이스가 있었다. isdigit()은 음수, 실수를 모두 false 로 반환한다. 그래서 다른 조건들을 먼저 앞에 걸어두고 else 까지 오면 무조건 push 하는 것으로 로직을 수정했다. C가 나오면 pop_back을 통해서 마지막 수를 없애고, D가 나오면 벡터 마지막에 들어있는 수에 2를 곱한 값을 벡터에 push 한다. 그리고 +가 나오면 벡터 마지막에 위치한 두 수를 합친 값을 push 한다. 최종적으로 이렇게 모인 수들을 합쳐서 리턴한다.
