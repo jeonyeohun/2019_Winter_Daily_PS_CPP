@@ -10,29 +10,22 @@ int main (){
     int N;
     cin >> N;
 
-    vector<int> inarr;
-    vector<int> outarr;
-    vector<int> cntarr (0, N);
-    
+    vector<int> outarr (10001, 0);
+
     while(N--){
         int n;
         cin >> n;
-        inarr.push_back(n);
+        // 입력을 받을 때마다 배열에 카운팅 개수 늘려주기
+        outarr[n]++;
     }
 
-    for (int i = 0 ; i < inarr.size() ; i++){
-        cntarr[inarr[i]-1]++;
+    // 여기 까지 왔을 때는 각 배열의 인덱스에 해당하는 값이 몇번나왔는지 배열에 들어가 있다.
+    for (int i = 0 ; i < outarr.size() ; i++){
+        while(outarr[i] != 0){ // 카운팅이 0이 될 때까지 출력
+            cout << i << "\n";
+            outarr[i]--;
+        }
     }
 
-    for (int i = 1 ; i < cntarr.size() ; i++){
-        cntarr[i]+=cntarr[i-1];
-    }
-
-    for (int i = inarr.size()-1 ; i >= 0 ; i++){
-        outarr[cntarr[inarr[i]-1]-1] = inarr[i];
-    }
-
-    for (int s : outarr){
-        cout << s << "\n";
-    }
+    return 0;
 }
