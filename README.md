@@ -402,7 +402,7 @@ Given an integer, convert it to a roman numeral. Input is guaranteed to be withi
 ~~~
 * 접근 방법: 사실 나머지 연산으로 해도 될 것 같긴 한데, 문자열로 처리하는게 제일 간단해보여서 나는 i를 0부터 계속 증가시키면서 i를 문자열로 변환하고 해당 문자열에 666이 포함되어 있는지 확인하는 방법을 시도했다. string 라이브러리의 substr() 함수는 substring을 찾으면 그 string을 반환하고, 찾지 못하면 string::npos를 반환하기 때문에, npos를 제외하고 어떤 값이라도 반환이 되면 카운트를 하나씩 올리고 이 카운트 변수가 입력으로 받은 N과 일치하면 반복을 종료하고 마지막으로 받았던 문자열을 출력하도록 한다.
 
-### 2019.01.02 
+### 2020.01.02 목요일
 [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
 ~~~
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -470,3 +470,16 @@ Write the code that will take a string and make this conversion given a number o
 string convert(string s, int numRows);
 ~~~
 * 접근 방법: 2차원 배열을 만들어두고 문제에서 주어진 조건대로 배열에 문자를 하나씩 집어 넣으 이후에 배열을 순서대로 출력하는 방법으로 해결했다. 행과 열의 인덱스를 규칙에 따라 바꾸어주어야하는데, row가 1씩 증가하는 것을 default 조건으로 만들고 row가 numRows-1에 도달하면 대각선으로 이동하도록 인덱스를 증감시키고 row가 다시 0에 도달하면 원래대로 행만 변경하면서 직선으로 내려오도록 인덱스를 증감시켰다. numRows가 1로 들어올 때 zero division에 대한 예외처리 때문에 애를 먹었는데, 결국 단순하게 생각해보면 numrows가 1이라는 것은 입력으로 들어온 문자열이 그대로 출력되는 것을 의미하기 때문에 파라미터로 들어온 문자열을 그대로 반환하는 것으로 해결했다.
+
+### 2020.01.03 금요일
+[155. Min Stack](https://leetcode.com/problems/min-stack/)
+~~~
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+push(x) -- Push element x onto stack.
+pop() -- Removes the element on top of the stack.
+top() -- Get the top element.
+getMin() -- Retrieve the minimum element in the stack.
+~~~
+
+* 접근 방법: 스택을 구현하는데 백터를 사용하는게 뭔가 아이러니하긴 하지만 아이템을 push하고 pop하는 과정은 벡터로 쉽게 구현이 가능했다. 그냥 push_back()과 pop_back()을 사용하면 되니까..결국 최솟값을 구하는 것을 최소한의 시간을 가지고 해야하는데 문제는 pop 기능이 있기 때문에 최솟값이 업데이트 되기 이전의 값으로 되돌릴 경우도 있다는 것이다. 이것을 해결하기 위해서 벡터 하나를 더 만들어서 또 다른 스택처럼 최솟값을 계속 모아두었다가 pop하는 값이 모아둔 최솟값의 가장 top에 위치한 아이템과 같다면, 최솟값 스택도 같이 pop해주는 방법으로 해결했다.
