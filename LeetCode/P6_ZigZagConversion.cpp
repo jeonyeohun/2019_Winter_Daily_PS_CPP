@@ -21,6 +21,7 @@ public:
                 if (row == 0) isDown = true;
             }
         }
+        
         string result;
         for (vector<char> a : arr){
             for (char c : a){

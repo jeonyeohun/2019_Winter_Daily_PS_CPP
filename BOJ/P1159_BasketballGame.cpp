@@ -52,5 +52,5 @@ int main (){
         sort(list.begin(), list.end()); // 알파벳 순으로 정렬해서 출력해야되니까 정렬하고 출력
         for (string s : list) cout << s;
     }
-    return 0;
+    return 0; 
 }
