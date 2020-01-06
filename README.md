@@ -696,9 +696,16 @@ E	<46, 155>	5
 ~~~
 * 접근 방법: int 형 데이터 두개를 가지는 pair변수를 만들어 몸무게와 키를 쌍으로 입력받아 벡터에 모두 저장한다. 모든 아이템의 등수는 초기에 1위로 설정된다. 그리고 벡터의 아이템을 처음부터 다른 아이템들과 모두 비교하면서 자신보다 더 큰 몸무게와 키를 가진 아이템을 만나면 등수를 1씩 올려준다.
 
-#### [844.Backspace String Compare]
+#### [844.Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)
 ~~~
 Given two strings S and T, return if they are equal when both are typed into empty text editors. # means a backspace character.
 ~~~
-
 * 접근 방법: 두 문자열을 각각 문자열의 모든 문자를 가져오면서 알파벳이 나오면 새로운 비어있는 문자열을 스택처럼 사용하면서 집어넣고 이외의 문자가 나오면 스택이된 문자열의 마지막 요소를 pop 해준다. 최종적으로는 만들어진 두 문자열을 compare 함수를 통해 비교하고 결과를 리턴한다.
+
+#### [496.Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/)
+~~~
+You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
+
+The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
+~~~
+* 접근 방법: iterator 를 활용해서 해결할 수 있다. 먼저 nums1[i]를 nums2에서 find함수로 찾고 반환되는 iterator 위치부터 끝까지 iterator 를 이동시키면서 nums[i] 보다 큰 값을 찾아 결과 벡터에 push 한다.
