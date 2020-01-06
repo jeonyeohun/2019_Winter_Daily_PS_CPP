@@ -715,3 +715,14 @@ The Next Greater Number of a number x in nums1 is the first greater number to it
 Given a circular array (the next element of the last element is the first element of the array), print the Next Greater Number for every element. The Next Greater Number of a number x is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn't exist, output -1 for this number.
 ~~~
 * 접근 방법: 양방향으로 배열이 연결되어있는 것을 가정하기 때문에 배열의 제일 끝에 도달했을 때 인덱스를 다시 0으로 만드는 것으로 양방향 처럼 인덱스 접근이 가능하도록 했다. 중첩 for문을 돌면서 i번째에 있는 값보다 큰 값이 있는지 j번째 요소들과 비교하고 i와 j가 같아지면 반복을 종료한 뒤 더 큰 값이 나오지 않았다면 -1을 결과에 push 했다.
+
+#### [71. Simplify Path]
+~~~
+Given an absolute path for a file (Unix-style), simplify it. Or in other words, convert it to the canonical path.
+
+In a UNIX-style file system, a period . refers to the current directory. Furthermore, a double period .. moves the directory up a level. For more information, see: Absolute path vs relative path in Linux/Unix
+
+Note that the returned canonical path must always begin with a slash /, and there must be only a single slash / between two directory names. The last directory name (if it exists) must not end with a trailing /. Also, the canonical path must be the shortest string representing the absolute path.
+~~~
+
+* 접근 방법: 문제가 어렵다기 보다는 예시랑 테스트케이스가 많이 달라서 예외들을 잡아주는데 시간이 걸렸다. 문제에 대한 접근 방법은 사실상 '/' 문자는 의미가 없으니 가장 처음에만 넣어두고 계속 무시하고 문자열을 앞에서부터 순서대로 읽으면서 알파벳이 나오면 '/'문자가 나올 때까지 계속 읽어서 하나의 문자열로 합쳐서 벡터에 넣어둔다. '.' 문자가 나오면 문자열의 끝에 도달하거나 '/'를 만날때까지 계속 읽어서 문자열로 일단 저장하는데, 저장된 문자열의 길이가 2라면 .. 가 들어있다는 뜻이 되니까 벡터에 있는 문자열 하나를 pop 해준다. 만약 길이가 3 이상이면 하나의 디렉토리 이름으로 취급을 해야해서 그대로 벡터에 문자열로 넣어준다.
