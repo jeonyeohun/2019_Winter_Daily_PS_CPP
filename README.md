@@ -709,3 +709,9 @@ You are given two arrays (without duplicates) nums1 and nums2 where nums1’s el
 The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
 ~~~
 * 접근 방법: iterator 를 활용해서 해결할 수 있다. 먼저 nums1[i]를 nums2에서 find함수로 찾고 반환되는 iterator 위치부터 끝까지 iterator 를 이동시키면서 nums[i] 보다 큰 값을 찾아 결과 벡터에 push 한다.
+
+#### [503. Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/)
+~~~
+Given a circular array (the next element of the last element is the first element of the array), print the Next Greater Number for every element. The Next Greater Number of a number x is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn't exist, output -1 for this number.
+~~~
+* 접근 방법: 양방향으로 배열이 연결되어있는 것을 가정하기 때문에 배열의 제일 끝에 도달했을 때 인덱스를 다시 0으로 만드는 것으로 양방향 처럼 인덱스 접근이 가능하도록 했다. 중첩 for문을 돌면서 i번째에 있는 값보다 큰 값이 있는지 j번째 요소들과 비교하고 i와 j가 같아지면 반복을 종료한 뒤 더 큰 값이 나오지 않았다면 -1을 결과에 push 했다.
