@@ -35,7 +35,6 @@ public:
                 alphas.push_back(a);
             }
         }
-        
         for (string str : alphas) result += str; // 여기까지 오면 스택에는 합쳐진 문자열 그룹들만 남는다. 얘네들을 합쳐서 또 새로운 문자열로 만들고 출력
         
         return result;
