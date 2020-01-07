@@ -821,3 +821,13 @@ baby sukhwan
 첫 번째 줄에 석환이가 N번째로 부를 단어를 출력한다. 여기서 단어란 가사 중 공백으로 구분되는 연속된 알파벳 소문자열을 뜻한다. 단, 출력할 단어가 “tururu...ru”일 때, “ru”가 k(k ≥ 5)번 반복되면 “tu+ru*k”와 같이 출력한다.
 ~~~
 * 접근 방법: 어차피 뚜루루 뚜루 부분을 제외한 다른 부분은 그대로 출력하면 되기 때문에 배열에 모든 문자열을 따로따로 맵핑해두고 입력으로 들어오는 N을 전체 문자열 갯수인 14로 나누고 남은 나머지 위치에 있는 문자열을 출력해주면 된다. 이때 출력할 문자열이 tururu 나 turu 면 N을 14로 나눈 몫만큼 반복해서 ru를 붙여준다. ru의 갯수가 5이상이면 출력 형태가 달라지는데 tururu는 배열의 짝수번째에 들어있고, turu는 배열의 홀수번째에 위치해 있기 때문에 홀수, 짝수에 따라 다른 조건을 만들어서 출력해준다.
+
+#### [1190. Reverse Substrings Between Each Pair of Parentheses](https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/)
+~~~
+You are given a string s that consists of lower case English letters and brackets. 
+
+Reverse the strings in each pair of matching parentheses, starting from the innermost one.
+
+Your result should not contain any brackets.
+~~~
+* 접근 방법: 사실 재귀로 푸는 문제인 것 같긴한데, 스택 반복문으로 풀었다. 주어진 문자열을 한 문자씩 읽어오면서 스택에 넣게 되는데 ')' 문자를 만나면 스택에 들어있는 문자들을 모두 역순으로 꺼내서 뒤집는다. 그리고 기존 주어진 문자열에서 '(' 문자가 있던 위치부터 ')' 문자가 있던 위치까지의 문자열을 모두 뒤집은 문자열로 replace 한다. 그리고 뒤집은 위치부터 다시 스택에 넣어줘야하기 때문에 '('문자가 있던 위치로 커서를 옮겨서 반복문을 계속 진행한다. 
