@@ -716,7 +716,7 @@ Given a circular array (the next element of the last element is the first elemen
 ~~~
 * 접근 방법: 양방향으로 배열이 연결되어있는 것을 가정하기 때문에 배열의 제일 끝에 도달했을 때 인덱스를 다시 0으로 만드는 것으로 양방향 처럼 인덱스 접근이 가능하도록 했다. 중첩 for문을 돌면서 i번째에 있는 값보다 큰 값이 있는지 j번째 요소들과 비교하고 i와 j가 같아지면 반복을 종료한 뒤 더 큰 값이 나오지 않았다면 -1을 결과에 push 했다.
 
-#### [71. Simplify Path]
+#### [71. Simplify Path](https://leetcode.com/problems/simplify-path/)
 ~~~
 Given an absolute path for a file (Unix-style), simplify it. Or in other words, convert it to the canonical path.
 
@@ -726,3 +726,14 @@ Note that the returned canonical path must always begin with a slash /, and ther
 ~~~
 
 * 접근 방법: 문제가 어렵다기 보다는 예시랑 테스트케이스가 많이 달라서 예외들을 잡아주는데 시간이 걸렸다. 문제에 대한 접근 방법은 사실상 '/' 문자는 의미가 없으니 가장 처음에만 넣어두고 계속 무시하고 문자열을 앞에서부터 순서대로 읽으면서 알파벳이 나오면 '/'문자가 나올 때까지 계속 읽어서 하나의 문자열로 합쳐서 벡터에 넣어둔다. '.' 문자가 나오면 문자열의 끝에 도달하거나 '/'를 만날때까지 계속 읽어서 문자열로 일단 저장하는데, 저장된 문자열의 길이가 2라면 .. 가 들어있다는 뜻이 되니까 벡터에 있는 문자열 하나를 pop 해준다. 만약 길이가 3 이상이면 하나의 디렉토리 이름으로 취급을 해야해서 그대로 벡터에 문자열로 넣어준다.
+
+#### [1047. Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
+~~~
+Given a string S of lowercase letters, a duplicate removal consists of choosing two adjacent and equal letters, and removing them.
+
+We repeatedly make duplicate removals on S until we no longer can.
+
+Return the final string after all such duplicate removals have been made.  It is guaranteed the answer is unique.
+~~~
+
+* 접근 방법: 처음에 문제를 잘못 이해해서 마지막만 unique한 아이템들만 남기고 앞에 있는 아이템을 삭제하는 방법으로 했었는데 아니었다..연달아 나오는 아이템을 삭제해야되므로 iterator를 돌리면서 바로 다음 자리에 같은 아이템이 있으면 둘다 삭제하고 다시 처음으로 돌아가 검사를 하는 것으로 해결했다. 
