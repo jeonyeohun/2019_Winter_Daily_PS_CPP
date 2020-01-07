@@ -739,7 +739,7 @@ Return the final string after all such duplicate removals have been made.  It is
 
 * 접근 방법: 처음에 문제를 잘못 이해해서 마지막만 unique한 아이템들만 남기고 앞에 있는 아이템을 삭제하는 방법으로 했었는데 아니었다..연달아 나오는 아이템을 삭제해야되므로 iterator를 돌리면서 바로 다음 자리에 같은 아이템이 있으면 둘다 삭제하고 다시 처음으로 돌아가 검사를 하는 것으로 해결했다. 
 
-#### [1209. Remove All Adjacent Duplicates in String II]
+#### [1209. Remove All Adjacent Duplicates in String II](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/)
 ~~~
 Given a string s, a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them causing the left and the right side of the deleted substring to concatenate together.
 
@@ -831,3 +831,21 @@ Reverse the strings in each pair of matching parentheses, starting from the inne
 Your result should not contain any brackets.
 ~~~
 * 접근 방법: 사실 재귀로 푸는 문제인 것 같긴한데, 스택 반복문으로 풀었다. 주어진 문자열을 한 문자씩 읽어오면서 스택에 넣게 되는데 ')' 문자를 만나면 스택에 들어있는 문자들을 모두 역순으로 꺼내서 뒤집는다. 그리고 기존 주어진 문자열에서 '(' 문자가 있던 위치부터 ')' 문자가 있던 위치까지의 문자열을 모두 뒤집은 문자열로 replace 한다. 그리고 뒤집은 위치부터 다시 스택에 넣어줘야하기 때문에 '('문자가 있던 위치로 커서를 옮겨서 반복문을 계속 진행한다. 
+
+#### [15654번: N과 M (5)](https://www.acmicpc.net/problem/15654)
+~~~
+문제
+N개의 자연수와 자연수 M이 주어졌을 때, 아래 조건을 만족하는 길이가 M인 수열을 모두 구하는 프로그램을 작성하시오. N개의 자연수는 모두 다른 수이다.
+
+N개의 자연수 중에서 M개를 고른 수열
+입력
+첫째 줄에 N과 M이 주어진다. (1 ≤ M ≤ N ≤ 8)
+
+둘째 줄에 N개의 수가 주어진다. 입력으로 주어지는 수는 10,000보다 작거나 같은 자연수이다.
+
+출력
+한 줄에 하나씩 문제의 조건을 만족하는 수열을 출력한다. 중복되는 수열을 여러 번 출력하면 안되며, 각 수열은 공백으로 구분해서 출력해야 한다.
+
+수열은 사전 순으로 증가하는 순서로 출력해야 한다.
+~~~
+* 접근 방법: 백트래킹 문제를 푸는게 어려워서 연습하려고 N과 M으로 돌아왔다. 이 문제는 수열을 만들 수가 주어지기 때문에 이 수들을 pair의 first로 넣고 second는 bool형태로 방문했던 수인지 확인하는 변수를 만들어서 해결했다.
