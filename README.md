@@ -670,7 +670,7 @@ N개의 수가 주어졌을 때, 네 가지 기본 통계값을 구하는 프로
 ~~~
 * 접근 방법: N과 M 3번의 코드에서 비내림차순만 확인해서 비내림차순인 세트들만 출력해준다.
 
-### 2020.01.05 월요일
+### 2020.01.06 월요일
 
 #### [7568번: 덩치](https://www.acmicpc.net/problem/7568)
 ~~~
@@ -727,6 +727,7 @@ Note that the returned canonical path must always begin with a slash /, and ther
 
 * 접근 방법: 문제가 어렵다기 보다는 예시랑 테스트케이스가 많이 달라서 예외들을 잡아주는데 시간이 걸렸다. 문제에 대한 접근 방법은 사실상 '/' 문자는 의미가 없으니 가장 처음에만 넣어두고 계속 무시하고 문자열을 앞에서부터 순서대로 읽으면서 알파벳이 나오면 '/'문자가 나올 때까지 계속 읽어서 하나의 문자열로 합쳐서 벡터에 넣어둔다. '.' 문자가 나오면 문자열의 끝에 도달하거나 '/'를 만날때까지 계속 읽어서 문자열로 일단 저장하는데, 저장된 문자열의 길이가 2라면 .. 가 들어있다는 뜻이 되니까 벡터에 있는 문자열 하나를 pop 해준다. 만약 길이가 3 이상이면 하나의 디렉토리 이름으로 취급을 해야해서 그대로 벡터에 문자열로 넣어준다.
 
+### 2020.01.07 화요일
 #### [1047. Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
 ~~~
 Given a string S of lowercase letters, a duplicate removal consists of choosing two adjacent and equal letters, and removing them.
@@ -768,3 +769,55 @@ Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-
 Note: Each term of the sequence of integers will be represented as a string.
 ~~~
 * 접근 방법: 각 자리에 해당하는 문자가 연달아 몇번 나왔는지 기억해두고 이후에 순서대로 출력한다. 예를 들어 4번째 값은 "21" 에서 나오는데 이 문자열을 하나씩 읽으면서 2는 한번, 1은 1번 나왔기 때문에 이것을 벡터에 페어로 쌓아두고 문자열을 다 읽고나면 1211 이렇게 second, first 순서로 페어를 출력해준다.
+
+#### [10867번: 중복 빼고 정렬하기](https://www.acmicpc.net/problem/10867)
+~~~
+문제
+N개의 정수가 주어진다. 이때, N개의 정수를 오름차순으로 정렬하는 프로그램을 작성하시오. 같은 정수는 한 번만 출력한다.
+
+입력
+첫째 줄에 수의 개수 N (1 ≤ N ≤ 100,000)이 주어진다. 둘째에는 숫자가 주어진다. 이 수는 절댓값이 1,000보다 작거나 같은 정수이다.
+
+출력
+첫째 줄에 수를 오름차순으로 정렬한 결과를 출력한다. 이때, 같은 수는 한 번만 출력한다.
+~~~
+* 접근 방법: 정렬, 그리고 중복된 수를 허용하지 않는다는 조건을 보고 바로 set이 떠올랐다. 입력을 set으로 받기만하고 출력만 해주면 될 것 같다.
+
+#### [15947번: 아기 석환 뚜루루 뚜루](https://www.acmicpc.net/problem/15947)
+~~~
+문제
+석환이는 오늘 낮에 커피를 마셔서 잠에 들지 못하고 있다. 이불 속에서 너무 심심한 나머지 “아기 석환” 노래를 잠에 들 때까지 부르려고 한다. 석환이는 UCPC 2018 출제진 중의 한 명인 석환(seokhwan)이랑은 달리, 자신의 이름을 sukhwan이라고 쓴다. 노래가 끝나면 다시 처음부터 부른다. 아기 석환 노래는 아래와 같다.
+
+baby sukhwan tururu turu
+very cute tururu turu
+in bed tururu turu
+baby sukhwan
+
+하지만 석환이는 계속 노래를 똑같이 부르기는 심심해서, 노래가 한 번 끝날 때마다 “tururu”와 “turu”에 “ru”를 한 번씩 더 추가해서 다음과 같이 부르려고 한다.
+
+baby sukhwan tururu turu
+very cute tururu turu
+in bed tururu turu
+baby sukhwan
+
+baby sukhwan turururu tururu
+very cute turururu tururu
+in bed turururu tururu
+baby sukhwan
+
+baby sukhwan tururururu turururu
+very cute tururururu turururu
+in bed tururururu turururu
+baby sukhwan
+
+…
+
+이 때, 석환이가 부르는 노래의 N번째 단어는 무엇일까?
+
+입력
+첫 번째 줄에 자연수 N(1 ≤ N ≤ 1,000,000)이 주어진다.
+
+출력
+첫 번째 줄에 석환이가 N번째로 부를 단어를 출력한다. 여기서 단어란 가사 중 공백으로 구분되는 연속된 알파벳 소문자열을 뜻한다. 단, 출력할 단어가 “tururu...ru”일 때, “ru”가 k(k ≥ 5)번 반복되면 “tu+ru*k”와 같이 출력한다.
+~~~
+* 접근 방법: 어차피 뚜루루 뚜루 부분을 제외한 다른 부분은 그대로 출력하면 되기 때문에 배열에 모든 문자열을 따로따로 맵핑해두고 입력으로 들어오는 N을 전체 문자열 갯수인 14로 나누고 남은 나머지 위치에 있는 문자열을 출력해주면 된다. 이때 출력할 문자열이 tururu 나 turu 면 N을 14로 나눈 몫만큼 반복해서 ru를 붙여준다. ru의 갯수가 5이상이면 출력 형태가 달라지는데 tururu는 배열의 짝수번째에 들어있고, turu는 배열의 홀수번째에 위치해 있기 때문에 홀수, 짝수에 따라 다른 조건을 만들어서 출력해준다.
