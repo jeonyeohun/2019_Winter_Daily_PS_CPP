@@ -737,3 +737,34 @@ Return the final string after all such duplicate removals have been made.  It is
 ~~~
 
 * 접근 방법: 처음에 문제를 잘못 이해해서 마지막만 unique한 아이템들만 남기고 앞에 있는 아이템을 삭제하는 방법으로 했었는데 아니었다..연달아 나오는 아이템을 삭제해야되므로 iterator를 돌리면서 바로 다음 자리에 같은 아이템이 있으면 둘다 삭제하고 다시 처음으로 돌아가 검사를 하는 것으로 해결했다. 
+
+#### [1209. Remove All Adjacent Duplicates in String II]
+~~~
+Given a string s, a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them causing the left and the right side of the deleted substring to concatenate together.
+
+We repeatedly make k duplicate removals on s until we no longer can.
+
+Return the final string after all such duplicate removals have been made.
+
+It is guaranteed that the answer is unique.
+~~~
+* 접근 방법: Remove All Adjacent Duplicates in String I 을 풀었을 때처럼 배열에 하나하나 접근해서 확인하려고 했는데, 이번 문제는 테스트 케이스가 매우 큰 값이 들어와서 스택을 사용하기로 했다. 까다로웠던 부분은 top k개의 인덱스에 있는 문자들이 같은지 최대한 효율적으로 탐색하는 것이었는데, 벡터와 pair를 사용해서 현재까지 있는 top k개의 문자들의 개수를 확인하는 방법으로 해결했다.
+
+#### [38. Count and Say](https://leetcode.com/problems/count-and-say/)
+~~~
+The count-and-say sequence is the sequence of integers with the first five terms as following:
+
+1.     1
+2.     11
+3.     21
+4.     1211
+5.     111221
+1 is read off as "one 1" or 11.
+11 is read off as "two 1s" or 21.
+21 is read off as "one 2, then one 1" or 1211.
+
+Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence. You can do so recursively, in other words from the previous member read off the digits, counting the number of digits in groups of the same digit.
+
+Note: Each term of the sequence of integers will be represented as a string.
+~~~
+* 접근 방법: 각 자리에 해당하는 문자가 연달아 몇번 나왔는지 기억해두고 이후에 순서대로 출력한다. 예를 들어 4번째 값은 "21" 에서 나오는데 이 문자열을 하나씩 읽으면서 2는 한번, 1은 1번 나왔기 때문에 이것을 벡터에 페어로 쌓아두고 문자열을 다 읽고나면 1211 이렇게 second, first 순서로 페어를 출력해준다.
