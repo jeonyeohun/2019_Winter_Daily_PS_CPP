@@ -873,3 +873,20 @@ Input: 1->2->3->4->5->NULL
 Output: 5->4->3->2->1->NULL
 ~~~
 * 접근 방법: 어떻게 해결해야 효율적인지 감이 잘 안와서 일단 커서를 두개 두는 방식으로 해결했다. 한 커서는 nullptr을 만날때까지 계속 이동시켜서 마지막 노드를 찾고 다른 커서는 위에서 찾은 노드의 바로 앞 노드를 가르키게 한다. 그리고 마지막을 가르키는 노드의 next를 앞 노드를 가르키게 하고 앞 노드의 next는 nullptr을 가르키게 해서 반복을 할 때 마지막 노드를 게속 바꿔준다.
+
+* 다른 사람 코드를 보고: 성능이 엄청 좋은 다른 사람의 정답 코드를 discussion에서 확인했는데, 단순히 swap과 같은 형태로 뒤집는 코드를 사용했다.
+~~~
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* reversed = NULL;
+        while(head != NULL){
+            ListNode* temp = head;
+            head = head->next;
+            temp->next = reversed;
+            reversed = temp;
+        }
+        return reversed;
+    }
+};
+~~~
