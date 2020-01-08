@@ -849,3 +849,27 @@ N개의 자연수 중에서 M개를 고른 수열
 수열은 사전 순으로 증가하는 순서로 출력해야 한다.
 ~~~
 * 접근 방법: 백트래킹 문제를 푸는게 어려워서 연습하려고 N과 M으로 돌아왔다. 이 문제는 수열을 만들 수가 주어지기 때문에 이 수들을 pair의 first로 넣고 second는 bool형태로 방문했던 수인지 확인하는 변수를 만들어서 해결했다.
+
+### 2020.01.08 수요일
+#### [342. Power of Four](https://leetcode.com/problems/power-of-four/)
+~~~
+Given an integer (signed 32 bits), write a function to check whether it is a power of 4.
+~~~
+* 접근 방법: 4부터 비트 연산자로 왼쪽으로 두칸씩 shift하면 4의 거듭제곱을 빠르게 만들 수 있다. 이 수가 주어진 num을 넘을 때까지 계속 shift 하면서 num과 일치되는 지점이 있는지 확인한다.
+
+#### [258. Add Digits](https://leetcode.com/problems/add-digits/)
+~~~
+Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+~~~
+* 접근 방법: 처음에는 10으로 나눈 나머지를 계속 더하고 num을 업데이트 해주면서 결과를 구했었다. 이렇게 해도 성공으로 나오는데 O(1)으로 해결하는 방법이 궁금해서 leetcode hint를 봤는데 결과에 규칙성이 있었다. 어차피 결과는 1~9 중에 하나로 나오고 입력으로 0이 들어왔을 때만 0이 나오기 때문에 이 부분에 대한 예외처리를 해주고 나머지는 num을 9로 나눈 나머지를 리턴해주면 해결됐다.
+
+#### [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+~~~
+Reverse a singly linked list.
+
+Example:
+
+Input: 1->2->3->4->5->NULL
+Output: 5->4->3->2->1->NULL
+~~~
+* 접근 방법: 어떻게 해결해야 효율적인지 감이 잘 안와서 일단 커서를 두개 두는 방식으로 해결했다. 한 커서는 nullptr을 만날때까지 계속 이동시켜서 마지막 노드를 찾고 다른 커서는 위에서 찾은 노드의 바로 앞 노드를 가르키게 한다. 그리고 마지막을 가르키는 노드의 next를 앞 노드를 가르키게 하고 앞 노드의 next는 nullptr을 가르키게 해서 반복을 할 때 마지막 노드를 게속 바꿔준다.
