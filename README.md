@@ -1083,3 +1083,25 @@ N이 주어졌을 때, 퀸을 놓는 방법의 수를 구하는 프로그램을 
 첫째 줄에 퀸 N개를 서로 공격할 수 없게 놓는 경우의 수를 출력한다.
 ~~~
 * 접근 방법: 백트래킹을 적용하는 문제였다. 오랫동안 해결하지 못했던 문제였는데 이번에 백트래킹을 공부하면서 어떻게 해결해야할지 감을 잡게 되었다. 각 행에는 무조건 한번에 하나의 퀸밖에 못들어오기 때문에 이중 for로 x, y를 모두 돌려보는게 아니라 재귀적으로 함수를 호출 할 때마다 y를 하나씩 늘려줘서 재귀에 한번 들어가면 다음 행에 대한 가능한 좌표를 구하도록 했다.
+
+### 2020.01.13 월요일
+#### [198. House Robber] (https://leetcode.com/problems/house-robber/)
+~~~
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
+~~~
+* 다이나믹 프로그래밍을 위해 일반화된 점화식을 찾고자 했는데 잘 안돼서 솔루션을 보고 풀었다.[풀이 링크](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems.)
+
+* 접근 방법: 다이나믹프로그래밍을 사용하기 전에 재귀식을 정리해보면 각 배열의 아이템(집)마다 도둑은 두가지 옵션을 가진다. 첫째는 현재 집에서 아무것도 훔치지 않는 것이고 두번째는 현재 집에서 도둑질을 하는 것이다. 첫번째 옵션을 선택한다는 것은 곧 바로 이전 집에서 도둑질을 했다는 의미이므로 현재 위치 n에서 1을 뺸 인덱스에 있는 값을 리턴한다. 그리고 첫번째 옵션이 선택되었다는 것은 n-2위치에 있는 집을 도둑질 했다는 의미이므로 n-2까지의 누적합과 n의 합을 구해서 리턴한다. 이것을 코드로 옮기면:
+~~~
+public int rob(int[] nums) {
+    return rob(nums, nums.length - 1);
+}
+private int rob(int[] nums, int i) {
+    if (i < 0) {
+        return 0;
+    }
+    return Math.max(rob(nums, i - 2) + nums[i], rob(nums, i - 1));
+}
+~~~
