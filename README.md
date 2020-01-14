@@ -1119,8 +1119,7 @@ Given two arrays, write a function to compute their intersection.
 ~~~
 * 접근 방법: 파라미터로 들어온 두 벡터를 두개의 set에 각각 넣어준다. 이렇게 하면 중복이 제거되고 정렬이 되면서 find함수를 사용할 때 더 빠른 속도로 탐색이 가능하다. 그리고 두 셋 중 하나를 순회하면서 대상이 되는 셋이 현재 iterator가 가르키는 값이 존재하는지 확인한다.
 
-#### [922. Sort Array By Parity II
-](https://leetcode.com/problems/sort-array-by-parity-ii/)
+#### [922. Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii/)
 ~~~
 Given an array A of non-negative integers, half of the integers in A are odd, and half of the integers are even.
 
@@ -1129,3 +1128,11 @@ Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even
 You may return any answer array that satisfies this condition.
 ~~~
 * 접근 방법: 결과벡터의 0과 짝수 인덱스에는 짝수들이 홀수 인덱스에는 홀수들이 들어가면 되기 때문에 각 인덱스를 짝수나 홀수가 나올때마다 2씩 올려주면서 계속 넣어주면 O(n) 속도로 문제를 해결할 수 있다.
+
+#### [976. Largest Perimeter Triangle](https://leetcode.com/problems/largest-perimeter-triangle/)
+~~~
+Given an array A of positive lengths, return the largest perimeter of a triangle with non-zero area, formed from 3 of these lengths.
+
+If it is impossible to form any triangle of non-zero area, return 0.
+~~~
+* 접근 방법: 세 변으로 삼각형을 만들 수 있는 조건은 가장 긴변이 다른 두 변을 합친 일이보다 작을 때이다. 어차피 가장 큰 둘레를 찾아야하기 때문에 배열을 내림차순으로 정렬하고 맨 앞에서부터 세개의 변을 가져오면서 삼각형을 만들 수 있는지 확인한다.
