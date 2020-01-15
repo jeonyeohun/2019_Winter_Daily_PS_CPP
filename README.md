@@ -536,7 +536,7 @@ N개의 수가 주어졌을 때, 네 가지 기본 통계값을 구하는 프로
 ~~~
 * 접근 방법: 
   + 산술평균: numeric 라이브러리에 들어있는 accumulate 함수를 통해서 입력받은 값들이 들어있는 벡터 요소들의 총합을 구하고 N으로 나눈다. cmath 의 round를 이용해서 반올림을 구현한다.
-  + 중앙값: 입력이 언제나 홀수개로 들어오기 때문에 그냥 벡터의 사이즈/2 를 해주면 중앙값의 인덱스를 구할 수 있다. 중앙 값을 구하기 전에 벡터가 sort 함수를 통해 정렬되어 있어야 한다.
+  + 중앙값: 입력이 언제나 홀수개로 들어오기 때문에 그냥 벡터의 사이즈/2 를 해���면 중앙값의 인덱스를 구할 수 있다. 중앙 값을 구하기 전에 벡터가 sort 함수를 통해 정렬되어 있어야 한다.
   + 최빈값: 그냥 최빈값을 찾는건 쉬운데 최빈값이 여러개 있을 때를 처리하기 위해서 일단 최빈값을 찾는다. 이를 이해서 길이 8001개 짜리 벡터 하나를 만들어서 입력을 받을 때마다 해당 값의 인덱스 값을 1씩 올려준다. 최빈값을 찾은 후에 카운팅 벡터를 돌면서 최빈값에 해당하는 수를 모두 별도의 벡터에 넣고 이 벡터의 사이즈가 1 이상이되면 sort 후에 1번째 인덱스에 있는 값을 출력한다.
   + 범위 : 범위는 최댓값 - 최솟값 이므로 정렬된 벡터의 가장 마지막 값과 제일 첫번째 값의 차를 구해서 출력한다.
 
@@ -1136,3 +1136,67 @@ Given an array A of positive lengths, return the largest perimeter of a triangle
 If it is impossible to form any triangle of non-zero area, return 0.
 ~~~
 * 접근 방법: 세 변으로 삼각형을 만들 수 있는 조건은 가장 긴변이 다른 두 변을 합친 일이보다 작을 때이다. 어차피 가장 큰 둘레를 찾아야하기 때문에 배열을 내림차순으로 정렬하고 맨 앞에서부터 세개의 변을 가져오면서 삼각형을 만들 수 있는지 확인한다.
+
+#### [1122. Relative Sort Array](https://leetcode.com/problems/relative-sort-array/)
+~~~
+Given two arrays arr1 and arr2, the elements of arr2 are distinct, and all elements in arr2 are also in arr1.
+
+Sort the elements of arr1 such that the relative ordering of items in arr1 are the same as in arr2.  Elements that don't appear in arr2 should be placed at the end of arr1 in ascending order.
+~~~
+* 접근 방법: 출현한 횟수만큼 아이템을 결과 벡터에 넣어줘야 하기 때문에 arr1을 순회하면서 나온 아이템을 cnt 벡터의 인덱스에 맞춰서 계속 카운팅을 해준다. 그리고 arr1에만 존재하고 arr2에는 없는 값들은 따로 모아두었다가 정렬한 이후에 결과벡터 가장 끝에 붙여넣는다. 결과벡터는 arr2에서 하나씩 꺼내면서 해당 값이 몇번 출현했는지 cnt벡터에서 횟수를 확인해서 그 횟수만큼 넣어주게 된다.
+
+#### [11004번: K번째 수](https://www.acmicpc.net/problem/11004)
+~~~
+문제
+수 N개 A1, A2, ..., AN이 주어진다. A를 오름차순 정렬했을 때, 앞에서부터 K번째 있는 수를 구하는 프로그램을 작성하시오.
+
+입력
+첫째 줄에 N(1 ≤ N ≤ 5,000,000)과 K (1 ≤ K ≤ N)이 주어진다.
+
+둘째에는 A1, A2, ..., AN이 주어진다. (-109 ≤ Ai ≤ 109)
+
+출력
+A를 정렬했을 때, 앞에서부터 K번째 있는 수를 출력한다
+~~~
+* 접근 방법: c++에서 지원하는 nth_element 합수를 통해 해결했다. 이 함수는 quick selection이라는 알고리즘을 사용하는데, 퀵소트와 셀렉션 소트 알고리즘의 컨셉을 합쳐서 만든 알고리즘이다. 따로 공부가 필요해 보인다.
+
+### 2020.01.15 수요일
+#### [1431번: 시리얼 번호](https://www.acmicpc.net/problem/1431)
+~~~
+문제
+다솜이는 기타를 많이 가지고 있다. 그리고 각각의 기타는 모두 다른 시리얼 번호를 가지고 있다. 다솜이는 기타를 빨리 찾아서 빨리 사람들에게 연주해주기 위해서 기타를 시리얼 번호 순서대로 정렬하고자 한다.
+
+모든 시리얼 번호는 알파벳 대문자 (A-Z)와 숫자 (0-9)로 이루어져 있다.
+
+시리얼번호 A가 시리얼번호 B의 앞에 오는 경우는 다음과 같다.
+
+A와 B의 길이가 다르면, 짧은 것이 먼저 온다.
+만약 서로 길이가 같다면, A의 모든 자리수의 합과 B의 모든 자리수의 합을 비교해서 작은 합을 가지는 것이 먼저온다. (숫자인 것만 더한다)
+만약 1,2번 둘 조건으로도 비교할 수 없으면, 사전순으로 비교한다. 숫자가 알파벳보다 사전순으로 작다.
+시리얼이 주어졌을 때, 정렬해서 출력하는 프로그램을 작성하시오.
+
+입력
+첫째 줄에 기타의 개수 N이 주어진다. N은 1,000보다 작거나 같다. 둘째 줄부터 N개의 줄에 시리얼 번호가 하나씩 주어진다. 시리얼 번호의 길이는 최대 50이고, 알파벳 대문자 또는 숫자로만 이루어져 있다. 시리얼 번호는 중복되지 않는다.
+
+출력
+첫째 줄부터 차례대로 N개의 줄에 한줄에 하나씩 시리얼 번호를 정렬한 결과를 출력한다.
+~~~
+* 접근 방법: sort함수에 사용자 정의 함수를 추가해서 조건을 그대로 넣어주었다. 가장먼저 문자열의 길이를 비교하고 길이가 같다면 isdigit함수를 통해 얻은 숫자 문자들을 모두 더해서 더 작은 수인지 확인하고 이것마저 같다면 그냥 비교연산자를 통해 사전순으로 더 작은지 확인했다.
+
+#### [877. Stone Game](https://leetcode.com/problems/stone-game/)
+~~~
+Alex and Lee play a game with piles of stones.  There are an even number of piles arranged in a row, and each pile has a positive integer number of stones piles[i].
+
+The objective of the game is to end with the most stones.  The total number of stones is odd, so there are no ties.
+
+Alex and Lee take turns, with Alex starting first.  Each turn, a player takes the entire pile of stones from either the beginning or the end of the row.  This continues until there are no more piles left, at which point the person with the most stones wins.
+
+Assuming Alex and Lee play optimally, return True if and only if Alex wins the game.
+~~~
+* 접근 방법: 돌의 갯수가 짝수로 고정되기 때문에 먼저시작한 사람이 무조건 이기는 게임이다.
+
+#### [338. Counting Bits](https://leetcode.com/problems/counting-bits/)
+~~~
+Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1's in their binary representation and return them as an array.
+~~~
+* 접근 방법: 각 수는 2의 거듭제곱일 때 무조건 1개의 1을 가진다. 처으부터 이진수에 있는 1을 0부터 나열해보면 0, 1, 1, 2, 1, 2, 2, 3, ... 이렇게 늘어나는데 결국 2의 거듭제곱인 2, 4, 8, 16 구간 사이에서 이전 구간에 있는 값에 1을 더한 값이 새로운 가간 값이 된다. 예를 들어 4부터 7까지는 0+1, 1+1, 1+1, 2+1 이 적용된다. 여기에서 착안해서 주어진 수가 어느구간에 포함되는지 구해서 그 구간에 있는 값을 구해준다.
