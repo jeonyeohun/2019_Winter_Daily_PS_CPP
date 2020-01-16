@@ -16,13 +16,13 @@ void back_tracking (vector<vector<int>> board){
         int start_score = 0;
         int link_score = 0;
         
-        for (int i = 1 ; i <= N ; i++) if (!visited[i]) link.push_back(i); // 링크 팀 만들기
+        for (int i = 0 ; i < N ; i++) if (!visited[i]) link.push_back(i); // 링크 팀 만들기
         
         for (int i = 0 ; i < N/2 ; i++){ // 각팀의 ij 조합의 합
             for (int j = i+1 ; j < N/2 ; j++){
                 if (i==j) continue;
-                start_score += (board[start[i]][start[j]] + board[start[j]][start[i]]);
-                link_score += (board[link[i]][link[j]] + board[link[j]][link[i]]);
+                start_score += (board[start[i]-1][start[j]-1] + board[start[j]-1][start[i]-1]);
+                link_score += (board[link[i]-1][link[j]-1] + board[link[j]-1][link[i]-1]);
             }
         }
         
@@ -33,10 +33,10 @@ void back_tracking (vector<vector<int>> board){
         return;
     }
 
-    for (int i = 1 ; i <= N ; i++){
+    for (int i = 0 ; i <= N ; i++){
         if(!visited[i]){
             visited[i] = true;
-            start.push_back(i);
+            start.push_back(i+1);
             back_tracking(board);
             start.pop_back();
             visited[i] = false;
@@ -47,13 +47,13 @@ void back_tracking (vector<vector<int>> board){
 int main (){
     cin >> N;
     vector<vector<int>> board(N+1, vector<int>(N+1, 0));
-    for (int i = 1 ; i <= N ; i++){
+    for (int i = 0 ; i < N ; i++){
         for (int j = 1 ; j <= N ; j++){
             int n; cin >> n;
             board[i][j] = n;
         }
     }
-    visited.resize(N+1, false);
+    visited.resize(N, false);
     back_tracking(board);
 
     cout << ans_min;
