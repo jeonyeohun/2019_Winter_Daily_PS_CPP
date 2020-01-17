@@ -1310,3 +1310,27 @@ f(x) = axn + bxn-1+...+cx+d
 주어진 일변수 다항식을 적분한 결과를 입력 형식과 동일하게 출력한다. 적분상수는 "W"로 x2은 "xx"로 표현한다.
 ~~~
 * 접근 방법: 하 진짜 개빡치는 문제...어렵진 않은데 처리해줘야되는게 너무 많다..문자열을 가운데 있는 연산자를 기준으로 두개로 나누어서 각각 적분식에 따라 처리해주고 마지막에 적분상수 W를 붙여주어 해결했다.
+
+### 2020.01.17 금요일
+#### [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+~~~
+Given a linked list, determine if it has a cycle in it.
+
+To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
+~~~
+* 접근 방법: 연결리스트가 어떤 위치에서 연결되어 있다면, 한 포인터는 한번에 한 노드씩 움직이고, 다른 한 포인터는 한번에 두 노드씩 움직이면 어떤 위치에서 반드시 두 노드가 만나게 된다.
+
+#### [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
+~~~
+Given a non-empty, singly linked list with head node head, return a middle node of linked list.
+
+If there are two middle nodes, return the second middle node.
+~~~
+* 접근 방법: 한개의 포인터를 만들어서 nullptr까지 리스트를 돌면서 노드의 총 갯수를 얻는다. 그리고 이 갯수를 반으로 나눈만큼 head를 움직이고 리턴하면 된다.
+
+
+#### [9280. 진용이네 주차타워](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW9j74FacD0DFAUY)
+~~~
+문제가 너무 길어서 생략.
+~~~
+* 접근 방법: 총 세개의 벡터를 사용하게 되는데 하나는 차량의 무게를 저장, 하나는 주차 공간 당 가격을 저장, 그리고 나머지 하나는 현재 주차장의 상태를 저장한다. 차량 하나를 넣을 때마다 주차장의 상태를 업데이트 하고, 주차공간이 가득차서 주차를 할 수 없는 상태라면, 대기열 벡터를 만들어 그 안에 대기중인 차량을 순서대로 넣는다. 입력 중 음수가 들어오면 그 절댓값에 해당하는 차량 번호를 현재 주차장에서 찾아서 빼주면서 요금을 계산하면 되는데, 이때 대기열이 비어있지 않다면 대기열의 맨 앞에 있는 차량을 방금 빼낸 자리로 넣어준다. 코드가 너무 지저분해서 함수로 만들어서 정리했더니 많이 깔끔해졌다.
