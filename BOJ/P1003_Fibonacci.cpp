@@ -3,33 +3,28 @@
 
 using namespace std;
 
-vector<pair<int, int>> dp (41, make_pair(-1, -1));
+vector<pair<int, int>> zeronecnt;
 
-pair<int, int> fib (int n){
+pair<int, int> getComb (int n){
+    if (n == 0) return make_pair(0, 0);
+    if (n == 1) return make_pair(1, 0);
+    if (n == 2) return make_pair(1, 1);
+
+    if (zeronecnt[n].first != -1) return zeronecnt[n];
     
-
-    if(n == 0) {
-        return make_pair(1, 0);
-    }
-    if(n == 1) {
-        return dp[1] = make_pair(0, 1);
-    }
-
-    if(dp[n].first != -1) return dp[n];
-    dp[n].first = fib(n-1).first + fib(n-2).first;
-    dp[n].second = fib(n-1).second + fib(n-2).second;
-
-    return dp[n];
+    zeronecnt[n].first = getComb(n-1).first + getComb(n-2).first;
+    zeronecnt[n].second = getComb(n-1).second + getComb(n-2).second;
+    return zeronecnt[n];
 }
 
 int main (){
-    int T;
-    cin >> T;
+    int N;
+    cin >> N;
+    zeronecnt.resize(N+1, make_pair(-1, -1));
 
-    while(T--){
-        int n; cin >> n;
-        pair<int, int> f = fib(n); 
-        cout << f.first << " " << f.second << "\n";
-    }
+    getComb(N);
+
+    cout << zeronecnt[N].first << " " << zeronecnt[N].second << endl;
+
     return 0;
 }
