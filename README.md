@@ -7,6 +7,10 @@
 * _(중요)_ 오늘도 부지런히 한 문제를 푼 나를 칭찬한다.
 
 * * *
+## PS LOG
+<details>
+<summary>2019년 12월의 PS</summary>
+<div markdown="1">
 
 ### 2019.12.18 수요일
 #### [2775번: 부녀회장이 될테야](https://www.acmicpc.net/problem/2775)
@@ -356,7 +360,12 @@ Given an integer, convert it to a roman numeral. Input is guaranteed to be withi
 듣보잡의 수와 그 명단을 사전순으로 출력한다.
 ~~~
 * 접근 방법: 처음에는 벡터를 두개 사용해서 find함수를 통해 해결하려고 했는데, std::find 함수는 모든 배열 요소를 검사하는 O(N^2) 의 복잡도를 가진다. 그래서 시간초과를 해결하기 위해 set을 사용하기로 했다. set 자료구조는 아이템이 들어갈 때마다 자동으로 정렬이 되고 이미 정렬된 배열이기 때문에 find함수도 이진탐색을 기반으로 한 O(log n) 의 복잡도를 가진다. 
+</div>
+</details>
 
+<details>
+<summary>2020년 01월의 PS</summary>
+<div markdown="1">
 ### 2020.01.01 수요일
 #### [1018번: 체스판 다시 칠하기](https://www.acmicpc.net/problem/1018)
 ~~~
