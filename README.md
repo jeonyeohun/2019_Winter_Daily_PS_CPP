@@ -366,6 +366,7 @@ Given an integer, convert it to a roman numeral. Input is guaranteed to be withi
 <details>
 <summary>2020년 01월의 PS</summary>
 <div markdown="1">
+
 ### 2020.01.01 수요일
 #### [1018번: 체스판 다시 칠하기](https://www.acmicpc.net/problem/1018)
 ~~~
@@ -1426,3 +1427,6 @@ N이 주어졌을 때, P(N)을 구하는 프로그램을 작성하시오.
 각 테스트 케이스마다 P(N)을 출력한다.
 ~~~
 * 접근 방법: 파도반 수열을 나열해보면 P(N)은 P(N-2) 와 P(N-3)의 합으로 만들어지는 것을 알 수 있었다. 이것을 dp로 구현하면 끝.
+
+</div>
+</details>
