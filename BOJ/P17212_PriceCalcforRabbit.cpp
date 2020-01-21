@@ -1,22 +1,22 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main (){
-    int cnt = 0;
-    int price;
-    cin >> price;
+    int N;
+    cin >> N;
+    
+    vector<int> coins = {7, 5, 2, 1};
 
-    while(price > 0){
-        cnt += price/7;
-        price %= 7;
-        cnt += price/5;
-        price %= 5;
-        cnt += price/2;
-        price %= 2;
-        cnt += price/1;
-        price %= 1;
+    int total = 0;
+
+    for (auto coin : coins){
+        total += N/coin;
+        N %= coin;
     }
 
-    cout << cnt;
+    cout << total;
+
+    return 0;
 }
