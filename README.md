@@ -1894,5 +1894,21 @@ N이 주어질 때, 길이가 N인 계단 수가 총 몇 개 있는지 구하는
 
 [풀이](https://jeonyeohun.github.io/2020/03/23/2565%EB%B2%88-%EC%A0%84%EA%B9%83%EC%A4%84.html)
 
+### 2020.03.26 목요일
+
+#### [11726번: 2xn 타일링](https://www.acmicpc.net/problem/11726)
+
+[풀이](https://jeonyeohun.github.io/2020/03/26/11726%EB%B2%88-2xn-%ED%83%80%EC%9D%BC%EB%A7%81.html)
+
+#### [9095번: 1,2,3 더하기](https://www.acmicpc.net/problem/9095)
+
+[풀이](https://jeonyeohun.github.io/2020/03/26/9095%EB%B2%88-1-2-3-%EB%8D%94%ED%95%98%EA%B8%B0.html)
+
+### 2020.03.27 금요일
+
+#### [2193번: 이친수](https://www.acmicpc.net/problem/2193)
+
+[풀이](https://jeonyeohun.github.io/2020/03/27/2193%EB%B2%88-%EC%9D%B4%EC%B9%9C%EC%88%98.html)
+
 </div>
 </details>
