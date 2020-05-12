@@ -1908,7 +1908,112 @@ N이 주어질 때, 길이가 N인 계단 수가 총 몇 개 있는지 구하는
 
 #### [2193번: 이친수](https://www.acmicpc.net/problem/2193)
 
-[풀이](https://jeonyeohun.github.io/2020/03/27/2193%EB%B2%88-%EC%9D%B4%EC%B9%9C%EC%88%98.html)
+[풀이](https://jeonyeohun.github.io/2020/03/27/2193%EB%B2%88-%EC%9D%B4%EC%B9%9C%EC%88%98)
+
+### 2020.03.29 금요일
+
+#### [9251번: LCS](https://www.acmicpc.net/problem/9251)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-03/%EB%B0%B1%EC%A4%80-LCS)
+
+### 2020.03.30 월요일
+
+#### [17212번: 달나라 토끼를 위한 구매대금 지불 도우미](https://www.acmicpc.net/problem/17212)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-03/%EB%B0%B1%EC%A4%80-%EB%8B%AC%EB%82%98%EB%9D%BC%ED%86%A0%EB%81%BC)
+
+#### [11279번: 최대 힙](https://www.acmicpc.net/problem/11279)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-03/%EB%B0%B1%EC%A4%80-%EC%B5%9C%EB%8C%80%ED%9E%99)
+
+#### [1927번: 최소 힙](https://www.acmicpc.net/problem/1927)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-03/%EB%B0%B1%EC%A4%80-%EC%B5%9C%EC%86%8C%ED%9E%99)
+
+</div>
+</details>
+
+<details>
+<summary>2020년 04월의 PS</summary>
+<div markdown="1">
+
+### 2020.04.02 목요일
+
+#### [1912번: 연속합](https://www.acmicpc.net/problem/1912)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-04/%EB%B0%B1%EC%A4%80-%EC%97%B0%EC%86%8D%ED%95%A9)
+
+### 2020.04.06 월요일
+
+#### [1931번: 회의실 배정](https://www.acmicpc.net/problem/1931)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-04/%EB%B0%B1%EC%A4%80-%ED%9A%8C%EC%9D%98%EC%8B%A4%EB%B0%B0%EC%A0%95)
+
+### 2020.04.29 수요일
+
+#### [2667번: 단지 번호 붙이기](https://www.acmicpc.net/problem/2667)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-04/%EB%B0%B1%EC%A4%80-%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0)
+
+### 2020.04.30 목요일
+
+#### [1260번: DFS와 BFS](https://www.acmicpc.net/problem/1260)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-04/%EB%B0%B1%EC%A4%80-dfs%EC%99%80bfs)
+
+</div>
+</details>
+
+<summary>2020년 05월의 PS</summary>
+<div markdown="1">
+
+### 2020.05.01 금요일
+
+#### [2606번: 연속합](https://www.acmicpc.net/problem/2606)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4)
+
+### 2020.05.02 토요일
+
+#### [1012번: 유기농 배추](https://www.acmicpc.net/problem/1012)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-%EC%9C%A0%EA%B8%B0%EB%86%8D-%EB%B0%B0%EC%B6%94)
+
+### 2020.05.03 일요일
+
+#### [1697번: 숨바꼭질](https://www.acmicpc.net/problem/1697)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88)
+
+#### [2252번: 줄세우기](https://www.acmicpc.net/problem/2252)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-%EC%A4%84%EC%84%B8%EC%9A%B0%EA%B8%B0)
+
+### 2020.05.04 일요일
+
+#### [2178번: 미로탐색](https://www.acmicpc.net/problem/2178)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-%EB%AF%B8%EB%A1%9C%ED%83%90%EC%83%89)
+
+### 2020.05.05 월요일
+
+#### [9252번: LCS 2](https://www.acmicpc.net/problem/9252)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-LCS2)
+
+#### [1655번: 가운데를 말해요](https://www.acmicpc.net/problem/1655)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-%EA%B0%80%EC%9A%B4%EB%8D%B0%EB%A5%BC-%EB%A7%90%ED%95%B4%EC%9A%94)
+
+#### [11286번: 절대값 힙](https://www.acmicpc.net/problem/11286)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-%EC%A0%88%EB%8C%80%EA%B0%92%ED%9E%99)
+
+### 2020.05.08 금요일
+
+#### [2150번: Strongly Connected Component](https://www.acmicpc.net/problem/2150)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-SCC)
 
 </div>
 </details>
