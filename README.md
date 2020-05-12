@@ -1964,6 +1964,7 @@ N이 주어질 때, 길이가 N인 계단 수가 총 몇 개 있는지 구하는
 </div>
 </details>
 
+<details>
 <summary>2020년 05월의 PS</summary>
 <div markdown="1">
 
@@ -2014,6 +2015,12 @@ N이 주어질 때, 길이가 N인 계단 수가 총 몇 개 있는지 구하는
 #### [2150번: Strongly Connected Component](https://www.acmicpc.net/problem/2150)
 
 [풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-SCC)
+
+### 2020.05.12 화요일
+
+#### [11266번: 단절점](https://www.acmicpc.net/problem/11266)
+
+[풀이](https://jeonyeohun.github.io/articles/2020-05/%EB%B0%B1%EC%A4%80-%EB%8B%A8%EC%A0%88%EC%A0%90)
 
 </div>
 </details>
