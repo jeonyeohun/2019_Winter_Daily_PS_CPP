@@ -6,7 +6,8 @@
 
 using namespace std;
 
-bool visited[101][101];
+bool visited_normal[101][101];
+bool visited_blind[101][101];
 int map[51][51];
 int N;
 
@@ -15,17 +16,37 @@ bool isOverBoarder(int y, int x){
 }
 
 void dfs_normal (int y, int x){
-    visited[y][x] = true;
+    visited_normal[y][x] = true;
     int xdir [] = {0, 0, 1, -1};
-    int ydir [] = {1, -1, 0, 0}; 
+    int ydir [] = {1, -1, 0, 0};
     int key = map[y][x];
 
     for (int i = 0 ; i < 4 ; i++){
         int newX = x + xdir[i];
         int newY = y + ydir[i];
 
-        if(!visited[newY][newX] && !isOverBoarder(newY, newX)){
+        if(!visited_normal[newY][newX] && !isOverBoarder(newY, newX)){
             if(map[newY][newX] == key) dfs_normal(newY, newX);
+        }
+        
+    }
+}
+
+void dfs_blind (int y, int x){
+    visited_blind[y][x] = true;
+    
+    int xdir [] = {0, 0, 1, -1};
+    int ydir [] = {1, -1, 0, 0};
+    int key = map[y][x];
+    
+    for (int i = 0 ; i < 4 ; i++){
+        int newX = x + xdir[i];
+        int newY = y + ydir[i];
+
+        if(!visited_blind[newY][newX] && !isOverBoarder(newY, newX)){
+            if (key == R && map[newY][newX] == G) dfs_blind(newY, newX);
+            else if (key == G && map[newY][newX] == R) dfs_blind(newY, newX);
+            else if (map[newY][newX] == key) dfs_blind(newY, newX);
         }
         
     }
@@ -33,7 +54,7 @@ void dfs_normal (int y, int x){
 
 int main (){
     scanf("%d", &N);
-
+    getchar();
     for (int i = 0 ; i < N ; i++){
         for (int j = 0 ; j < N ; j++){
             char c;
@@ -49,13 +70,23 @@ int main (){
     int normal = 0;
     for (int i = 0 ; i < N ; i++){
         for(int j = 0 ; j < N ; j++){
-            if (!visited[i][j]) {
+            if (!visited_normal[i][j]) {
                 dfs_normal(i, j);
                 normal++;
-                printf("%d %d\n", i, j);
+            }
+        }
+    }
+    
+    
+    int blind = 0;
+    for (int i = 0 ; i < N ; i++){
+        for(int j = 0 ; j < N ; j++){
+            if (!visited_blind[i][j]) {
+                dfs_blind(i, j);
+                blind++;
             }
         }
     }
 
-    printf("%d", normal);
+    printf("%d %d", normal, blind);
 }
