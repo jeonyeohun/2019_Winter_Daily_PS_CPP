@@ -5,6 +5,7 @@ using namespace std;
 int M, N;
 
 int map[501][501];
+bool visited[501][501];
 int dp[501][501];
 
 bool isMovePossible(int row, int col)
@@ -23,9 +24,9 @@ int dfs(int row, int col)
         return 1;
     }
 
-    if (dp[row][col] == -1)
+    if (!visited[row][col])
     {
-        dp[row][col] = 0;
+        visited[row][col] = true;
         for (int i = 0; i < 4; i++)
         {
             int nextRow = row + rowDir[i];
@@ -50,9 +51,8 @@ int main()
         for (int j = 1; j <= N; j++)
         {
             cin >> map[i][j];
-            dp[i][j] = -1;
         }
     }
 
-    cout << dfs(1, 1);
+    cout << dfs(1, 1) << endl;
 }
