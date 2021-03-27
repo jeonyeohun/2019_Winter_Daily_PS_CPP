@@ -3,3 +3,6 @@
 .DS_Store
 .vscode/settings.json
 _site/*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/tasks.json
