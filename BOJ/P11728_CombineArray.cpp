@@ -10,10 +10,10 @@ int main() {
     int B[M];
 
     for (int i = 0; i < N; i++) {
-        cin >> A[0];
+        cin >> A[i];
     }
     for (int i = 0; i < M; i++) {
-        cin >> B[0];
+        cin >> B[i];
     }
 
     int startA, endA, startB, endB;
@@ -22,9 +22,25 @@ int main() {
     int sum[N + M];
     int sumIdx = 0;
 
-    while (startA != N - 1 || startB != M - 1) {
-        if (A[startA] < B[startB])[
 
-        ]
+    while (startA != N || startB != M) {
+        if (A[startA] < B[startB]) {
+            sum[sumIdx++] = A[startA++];
+        }
+        else {
+            sum[sumIdx++] = B[startB++];
+        }
+    }
+
+    while (startA != N) {
+        sum[sumIdx++] = A[startA++];
+    }
+
+    while (startB != M) {
+        sum[sumIdx++] = B[startB++];
+    }
+
+    for (int i = 0; i < N + M; i++) {
+        cout << sum[i] << " ";
     }
 }
