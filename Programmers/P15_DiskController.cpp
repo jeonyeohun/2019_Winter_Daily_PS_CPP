@@ -18,33 +18,39 @@ bool cmp(vector<int> a, vector<int> b) {
 }
 
 int solution(vector<vector<int>> jobs) {
-    int answer = 0;
     priority_queue<vector<int>, vector<vector<int>>, Compare> pq;
-    queue<vector<int>> temp;
+    vector<bool> isUsed(jobs.size(), false);
     sort(jobs.begin(), jobs.end(), cmp);
 
     pq.push(jobs.front());
 
-    int used = 1;
-    int endTime = 0;
     int timeSum = 0;
-    int workTime;
+    int endTime = (pq.top())[0];
+
+    isUsed[0] = true;
     while (!pq.empty()) {
         vector<int> now = pq.top();
         pq.pop();
 
-        cout << now[0] << " " << now[1] << endl;
+        timeSum += abs(endTime - now[0]) + now[1];
+        endTime += now[1];
 
-        workTime = endTime - now[0] + now[1];
-        endTime = now[0] + workTime;
+        for (int i = 0; i < jobs.size(); i++) {
+            if (jobs[i][0] <= endTime && !isUsed[i]) {
+                pq.push(jobs[i]);
+                isUsed[i] = true;
+            }
+        }
 
-        cout << "w : " << workTime << " e: " << endTime << "\n";
-        timeSum += workTime;
-
-        while (used < jobs.size() && now[1] >= jobs[used][0]) {
-            if (jobs[used][0] <= now[1]) pq.push(jobs[used]);
-            cout << "   " << jobs[used][0] << " " << jobs[used][1] << endl;
-            used++;
+        if (pq.empty()) {
+            for (int i = 0; i < jobs.size(); i++) {
+                if (jobs[i][0] > endTime && !isUsed[i]) {
+                    pq.push(jobs[i]);
+                    isUsed[i] = true;
+                    endTime = jobs[i][0];
+                    break;
+                }
+            }
         }
     }
 
